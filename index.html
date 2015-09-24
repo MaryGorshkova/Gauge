@@ -10,10 +10,23 @@
 			border: 1px solid #000;
 		}
 	</style>
+
 	<script type="text/javascript" src="script.js"></script>	
+
 </head>
+
 <body>
 	<canvas id="canvElement"></canvas>
+
+	<script type="text/javascript">
+		var target = document.getElementById('canvElement');
+		var gauge = new Gauge(target);
+		gauge.applySettings(1);
+		gauge.value = 3;
+		gauge.maxValue = 6;
+
+	</script>
+
 	<form>
 		<button id="refresh_btn">Обновить</button>
 	</form>
