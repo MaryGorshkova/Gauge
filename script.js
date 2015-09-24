@@ -7,12 +7,12 @@ function Gauge(canv){
 
 	Object.defineProperty(this, 'value', {
 		get: function() { return value },
-		set: function(val) { value = val; console.log(this.value)} 
+		set: function(val) { value = val; setHand()} 
 	})
 
 	Object.defineProperty(this, 'maxValue', {
 		get: function() { return maxValue },
-		set: function(val) { maxValue = val; console.log(this.maxValue)} 
+		set: function(val) { maxValue = val; setScale()} 
 	})
 
 	this.applySettings = function (settings){
@@ -26,6 +26,18 @@ function Gauge(canv){
 		gaugeField.arc(x,y,ri,0*Math.PI,1*Math.PI, true);
 		gaugeField.closePath();
 		gaugeField.stroke();
+	}
+
+	//--------internal func--------
+
+	function setScale(){
+		console.log('set scale started');
+		
+	}
+
+	function setHand(){
+		console.log('set hand started');
+
 	}
 
 
