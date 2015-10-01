@@ -63,11 +63,17 @@ function Gauge(canv, diam){
 		var currentAng = 0.75*Math.PI;
 		var currentVal = 0;
 
+		ctx.fillStyle="#000000";
+
 		ctx.font = "15px Arial";
 
 		while (maxValue >= currentVal){
-			ctx.fillText(currentVal, x+r*Math.cos(stepAng*currentVal+currentAng)*1.05, y+r*Math.sin(stepAng*currentVal+currentAng)*1.05); //y*Math.cos(0.75)
-			// currentAng += stepAng;
+			
+			var cos = Math.cos(stepAng*currentVal+currentAng);
+			var sin = Math.sin(stepAng*currentVal+currentAng);
+
+			ctx.fillText(currentVal, x+r*cos*1.05+(cos-1)*5, y+r*sin*1.05+(sin+1)*5); //y*Math.cos(0.75)
+			
 			currentVal += 1;
 		}
 	}
