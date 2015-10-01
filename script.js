@@ -5,6 +5,7 @@ function Gauge(canv, diam){
 	var maxValue = null;
 	var diameter = diam;
 	var ctx = canv.getContext('2d');
+	ctx.translate(canv.height*0.5, canv.height*0.5);
 	var x;
 	var y;
 	var r;
@@ -29,8 +30,8 @@ function Gauge(canv, diam){
 
 		ctx.beginPath();
 		ctx.strokeStyle="#000000";
-		ctx.arc(x,y,r,0.75*Math.PI,1.5*Math.PI);
-		ctx.arc(x,y,ri,1.5*Math.PI,0.75*Math.PI, true);
+		ctx.arc(0,0,r,0.75*Math.PI,1.5*Math.PI);
+		ctx.arc(0,0,ri,1.5*Math.PI,0.75*Math.PI, true);
 		ctx.closePath();
 		ctx.stroke();
 		ctx.fillStyle = "#000000";
@@ -38,8 +39,8 @@ function Gauge(canv, diam){
 
 		ctx.beginPath();
 		ctx.strokeStyle="#ffff00";
-		ctx.arc(x,y,r,1.5*Math.PI,1.90*Math.PI);
-		ctx.arc(x,y,ri,1.90*Math.PI,1.5*Math.PI, true);
+		ctx.arc(0,0,r,1.5*Math.PI,1.90*Math.PI);
+		ctx.arc(0,0,ri,1.90*Math.PI,1.5*Math.PI, true);
 		ctx.closePath();
 		ctx.stroke();
 		ctx.fillStyle = "#ffff00";
@@ -47,8 +48,8 @@ function Gauge(canv, diam){
 
 		ctx.beginPath();
 		ctx.strokeStyle="#ff0000";
-		ctx.arc(x,y,r,1.90*Math.PI,0.25*Math.PI);
-		ctx.arc(x,y,ri,0.25*Math.PI,1.90*Math.PI, true);
+		ctx.arc(0,0,r,1.90*Math.PI,0.25*Math.PI);
+		ctx.arc(0,0,ri,0.25*Math.PI,1.90*Math.PI, true);
 		ctx.closePath();
 		ctx.stroke();
 		ctx.fillStyle = "#ff0000";
@@ -72,7 +73,7 @@ function Gauge(canv, diam){
 			var cos = Math.cos(stepAng*currentVal+currentAng);
 			var sin = Math.sin(stepAng*currentVal+currentAng);
 
-			ctx.fillText(currentVal, x+r*cos*1.05+(cos-1)*5, y+r*sin*1.05+(sin+1)*5); //y*Math.cos(0.75)
+			ctx.fillText(currentVal, r*cos*1.05+(cos-1)*5, r*sin*1.05+(sin+1)*5); //y*Math.cos(0.75)
 			
 			currentVal += 1;
 		}
